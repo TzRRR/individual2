@@ -13,36 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      WORKING_DIR: add #change this to the rust project name you are developing.
+      WORKING_DIR: sqlite
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
-    - name: Check
-      run: make check
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: Check
+        run: make check
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: Format
-      run: make format
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: Format
+        run: make format
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: Test
-      run: make test
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: Test
+        run: make test
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: Release
-      run: make release
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: Release
+        run: make release
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: Upload Binary Artifact
-      uses: actions/upload-artifact@v4 #v3 is scheduled for deprecation Nov 30 2024 check marketplace
-      with:
-        name: release-binary
-        path: ${{ env.WORKING_DIR }}/target/release/minigrep
+      - name: Upload Binary Artifact
+        uses: actions/upload-artifact@v4 #v3 is scheduled for deprecation Nov 30 2024 check marketplace
+        with:
+          name: release-binary
+          path: ${{ env.WORKING_DIR }}/target/release/sqlite
