@@ -2,6 +2,10 @@
 
 This project is a command-line interface (CLI) application built in Rust that manages data stored in an SQLite database. It supports key operations including creating tables, executing queries, deleting tables, and loading data from CSV files.
 
+## Demo Video Attached Here:
+
+https://youtu.be/ppdyPwP6q1E
+
 ## Features
 
 - **Create**: Initialize tables with specific schemas.
